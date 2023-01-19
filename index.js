@@ -2,7 +2,7 @@ let cardholderName = ""
 let cardNumber = ""
 
 
-// $("#name-error").hide()
+
 const getCardHolderName = () => {
     /**
      * Function gets the user's card holder name
@@ -10,24 +10,44 @@ const getCardHolderName = () => {
     let userName  = $("#card-name").val();
     let nameTest = /^[a-zA-Z]+ [a-zA-Z]+$/; 
 
-    if (nameTest.test(userName) == true || userName == "") {
-        $("#name-error").css("display", "none")
-        cardholderName = userName
+    if (nameTest.test(userName) == true || userName == "") {  // cardholder name
+          $("#name-error").css("display", "none")
+          cardholderName = userName
     } else {
-        $("#name-error").css("display", "inline")
+          $("#name-error").css("display", "inline")
     }
 }
 
 const getCardNumbers = () => {
-    //Function gets the user card numbers and validates it using the validate card function//
+    /*
+      Function gets the user card numbers and validates it using the validate card function
+    */
     let userCardNum  = $("#card-num").val();
-    if (validateCard(userCardNum) == true || userCardNum == "") {
+    let x = userCardNum.replace(/\s/g, '')              // removes any trailing spaces
+    if (validateCard(x) == true || userCardNum == "") {
         $("#card-error").css("display", "none")
-        cardNumber = userCardNum
-    } else {
+        const formattedNums = x.match(/.{1,4}/g);
+        cardNumber = formattedNums.join(" ")
+        $("#card-num").val(cardNumber) 
+    } 
+    else {
         $("#card-error").css("display", "inline")
     }
 }
+
+const getExpDateandCVC = () => {
+    let month = $("#mm").val()
+    let year = $("#yy").val()
+    let cvc = $("#cvc").val()
+
+    if (1 <= month <= 12) {
+        // for later
+    }
+}
+
+
+
+
 
 const validateCard = (cardNumber) => {
     /**
