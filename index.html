@@ -37,19 +37,22 @@
 
         <form class="form-container">
             <p>CARDHOLDER NAME</p>
-                <input id="card-name"class="input" type="text" value="" placeholder="eg. Bob Smith">
+                <input id="card-name"class="input" type="text" value="" placeholder="eg. Bob Smith" onkeyup=getCardHolderName()>
+                <p id="name-error" class="error-msg">Invalid format, enter as [FirstName LastName]</p>
             <p>CARD NUMBER</p>
-                <input id="card-num" class="input" type="text" value="" placeholder="eg. 1234 5678 9123 0000">
-
+                <input id="card-num" class="input" type="text" value="" placeholder="eg. 1234 5678 9123 0000" onkeyup=getCardNumbers()>
+                <p id="card-error" class="error-msg">Wrong Format, numbers only</p>
             <div class="mm-yy-cvc-container">
                 <div>
                     <p>EXP. DATE (MM/YY)</p>
-                        <input id="mm" class="input" type="text" value="" placeholder="MM">
-                        <input id="yy" class="input" type="text" value="" placeholder="YY">
+                        <input id="mm" class="input" type="text" value="" placeholder="MM" onkeyup=getExpDateMonth()>
+                        <input id="yy" class="input" type="text" value="" placeholder="YY" onkeyup=getExpDateYear()>
+                        <p id="mm-yy-error" class="error-msg">...</p>
                     </div>
                 <div>
                     <p>CVC</p>
-                        <input id="cvc" class="input" type="text" value="" placeholder="eg. 123">
+                        <input id="cvc" class="input" type="text" value="" placeholder="eg. 123" onkeyup=getCVC()>
+                        <p id="cvc-error" class="error-msg">Invalid CVC</p>
                     </div>
             </div>
                 <br>
