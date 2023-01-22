@@ -35,7 +35,7 @@
                 </div>
         </div>
 
-        <form class="form-container">
+        <form class="form-container" action="/" method="post">
             <p>CARDHOLDER NAME</p>
                 <input id="card-name"class="input" type="text" value="" placeholder="eg. Bob Smith" onkeyup=getCardHolderName()>
                 <p id="name-error" class="error-msg">Please enter your first and last name</p>
@@ -56,7 +56,7 @@
                     </div>
             </div>
                 <br>
-            <button type="submit" >Confirm</button>
+            <button type="submit" name="submit">Confirm</button>
         </form>
 
     </main>

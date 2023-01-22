@@ -27,13 +27,16 @@ const getCardNumbers = () => {
     let x = userCardNum.replace(/\s/g, '')              // removes any trailing spaces
     if (x.length == 16) {
         $("#card-error").css("display", "none")
+        $("#card-num").css("border", "1px solid #eeeeee")
         const formattedNums = x.match(/.{1,4}/g);
         $("#card-num").val(formattedNums.join(" "))
         $("#front-card-numbers").text(formattedNums.join(" "))
     } 
     else {
         $("#card-error").css("display", "inline")
+        $("#card-num").css("border", "1px solid red")
         $("#front-card-numbers").text("0000 0000 0000 0000")
+
     }
 }
 
@@ -43,8 +46,10 @@ const getExpDateMonth = () => {
     if (usrMonth <= 12 && usrMonth >= 1) {
         $("#mm-yy-error").css("display", "none")
         $("#exp-date-mm").text(usrMonth)
+        $("#mm").css("border", "1px solid #eeeeee")
     } else {
         $("#mm-yy-error").css("display", "block").text("Invalid Month")
+        $("#mm").css("border", "1px solid red")
     }
 }
 
@@ -54,8 +59,10 @@ const getExpDateYear = () => {
   if (usrYear > 22 && usrYear.toString().length == 2) {
     $("#mm-yy-error").css("display", "none")
     $("#exp-date-yy").text(usrYear)
+    $("#yy").css("border", "1px solid #eeeeee")
   } else {
     $("#mm-yy-error").css("display", "block").text("Invalid Year")
+    $("#yy").css("border", "1px solid red")
   }
 }
 
@@ -63,10 +70,12 @@ const getCVC = () => {
     let usrCVC = parseInt($("#cvc").val())
 
     if (usrCVC >= 100 && usrCVC <= 999) {
-      $("#cvc-error").css("display", "none") 
+      $("#cvc-error").css("display", "none")
+      $("#cvc").css("border", "1px solid #eeeeee")
       $("#card-back-cvc").text(usrCVC)
     } else {
       $("#cvc-error").css("display", "block")
+      $("#cvc").css("border", "1px solid red")
     }
 }
 
