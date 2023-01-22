@@ -24,8 +24,8 @@
                     <div>
                         <h1 id="front-card-numbers">0000 0000 0000 0000</h1>
                             <div id="name-cvc">
-                                <p>FirstName LastName</p>
-                                    <p>00/00</p>
+                                <p id="cardholderName">FirstName LastName</p>
+                                    <p><a id="exp-date-mm">00</a>/<a id="exp-date-yy">00</a></p>
                             </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         <form class="form-container">
             <p>CARDHOLDER NAME</p>
                 <input id="card-name"class="input" type="text" value="" placeholder="eg. Bob Smith" onkeyup=getCardHolderName()>
-                <p id="name-error" class="error-msg">Invalid format, enter as [FirstName LastName]</p>
+                <p id="name-error" class="error-msg">Please enter your first and last name</p>
             <p>CARD NUMBER</p>
                 <input id="card-num" class="input" type="text" value="" placeholder="eg. 1234 5678 9123 0000" onkeyup=getCardNumbers()>
                 <p id="card-error" class="error-msg">Wrong Format, numbers only</p>
@@ -56,7 +56,7 @@
                     </div>
             </div>
                 <br>
-            <button>Confirm</button>
+            <button type="submit" >Confirm</button>
         </form>
 
     </main>

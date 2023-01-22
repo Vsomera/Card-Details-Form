@@ -1,25 +1,22 @@
-let cardholderName = ""
-let cardNumber = ""
-let month = ""
-let year = ""
-let cvc = ""
-
-
-
-
 const getCardHolderName = () => {
     /**
      * Function gets the user's card holder name
     */
     let userName  = $("#card-name").val();
-    let nameTest = /^[a-zA-Z]+ [a-zA-Z]+$/; 
+    let nameTest = /^[a-zA-Z]+ [a-zA-Z]+$/;
+     
+    if (userName == " ") {
+      $("#cardholderName").text("FirstName LastName")
+    }
 
-    if (nameTest.test(userName) == true || userName == "") {  // cardholder name
+    if (nameTest.test(userName) == true) {  // validates cardholder name
+          $("#cardholderName").text(userName)
           $("#name-error").css("display", "none")
-          cardholderName = userName
     } else {
           $("#name-error").css("display", "inline")
+          $("#cardholderName").text("FirstName LastName")
     }
+
 }
 
 const getCardNumbers = () => {
@@ -28,79 +25,49 @@ const getCardNumbers = () => {
     */
     let userCardNum  = $("#card-num").val();
     let x = userCardNum.replace(/\s/g, '')              // removes any trailing spaces
-    if (validateCard(x) == true || userCardNum == "") {
+    if (x.length == 16) {
         $("#card-error").css("display", "none")
         const formattedNums = x.match(/.{1,4}/g);
-        cardNumber = formattedNums.join(" ")
-        $("#card-num").val(cardNumber) 
+        $("#card-num").val(formattedNums.join(" "))
+        $("#front-card-numbers").text(formattedNums.join(" "))
     } 
     else {
         $("#card-error").css("display", "inline")
+        $("#front-card-numbers").text("0000 0000 0000 0000")
     }
 }
 
 const getExpDateMonth = () => {
     let usrMonth = parseInt($("#mm").val())
-    
+
     if (usrMonth <= 12 && usrMonth >= 1) {
         $("#mm-yy-error").css("display", "none")
-        month = usrMonth
+        $("#exp-date-mm").text(usrMonth)
     } else {
         $("#mm-yy-error").css("display", "block").text("Invalid Month")
-    }}
+    }
+}
 
 const getExpDateYear = () => {
-    let usrYear = parseInt($("#yy").val())
+  let usrYear = parseInt($("#yy").val())
 
-    if (usrYear > 22 && usrYear.toString().length == 2) {
-      $("#mm-yy-error").css("display", "none") 
-      year = usrYear
-    } else {
-      $("#mm-yy-error").css("display", "block").text("Invalid Year")
-}}
+  if (usrYear > 22 && usrYear.toString().length == 2) {
+    $("#mm-yy-error").css("display", "none")
+    $("#exp-date-yy").text(usrYear)
+  } else {
+    $("#mm-yy-error").css("display", "block").text("Invalid Year")
+  }
+}
 
 const getCVC = () => {
     let usrCVC = parseInt($("#cvc").val())
 
     if (usrCVC >= 100 && usrCVC <= 999) {
       $("#cvc-error").css("display", "none") 
-      cvc = usrCVC
+      $("#card-back-cvc").text(usrCVC)
     } else {
       $("#cvc-error").css("display", "block")
     }
 }
 
 
-const validateCard = (cardNumber) => {
-    /**
-        Function uses luhns algorithm to verify credit card number
-    **/
-    // Reverse the card number
-    var reversed = cardNumber.split("").reverse().join("");
-    
-    // Multiply every other digit by 2, starting with the first digit
-    var multiplied = [];
-    for (var i = 0; i < reversed.length; i++) {
-      var digit = parseInt(reversed[i]);
-      if (i % 2 === 0) {
-        digit *= 2;
-      }
-      multiplied.push(digit);
-    }
-  
-    // Subtract 9 from any digits that are greater than 9
-    var subtracted = multiplied.map(function(digit) {
-      if (digit > 9) {
-        digit -= 9;
-      }
-      return digit;
-    });
-  
-    // Sum all the digits
-    var sum = subtracted.reduce(function(acc, digit) {
-      return acc + digit;
-    }, 0);
-  
-    // If the sum is divisible by 10, the card number is valid
-    return sum % 10 === 0;
-  }
