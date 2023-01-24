@@ -80,3 +80,14 @@ const getCVC = () => {
 }
 
 
+const toggleHTML = () => {
+
+}
+
+// $(".thank-you-container").css("display", "none")
+// $(".form-container").css("display", "flex")
+
+
+
+
+

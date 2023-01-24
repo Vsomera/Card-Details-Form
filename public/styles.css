@@ -67,7 +67,7 @@ main {
 
 
 /*Texboxes*/
-.form-container {
+.form-container, .thank-you-container {
     padding: 0 5%;
     display: flex;
     flex-flow: column nowrap;
@@ -101,8 +101,8 @@ main {
     border: 1px solid #eeeeee
 }
 
-/*Button*/
-button {
+/*anchor Button*/
+#confirm-btn {
     background-color: black;
     color: white;
     width: 100%;
@@ -110,6 +110,7 @@ button {
     padding: 1rem;
     border-radius: 5px;
     border: 0;
+    text-align: center;
 }
 
 /*Error Messages*/
@@ -118,3 +119,22 @@ button {
     font-size: 10px;
     display: none
 }
+
+/* Thank You HTML*/
+.thank-you-container {
+    text-align: center;
+}
+#thank-you-text {
+    margin: 1rem 0 2rem 0;
+    line-height: 25px;
+}
+#thank-you-text h1 {
+    font-weight: 300;
+}
+#thank-you-text p {
+    color: hsl(279, 6%, 55%);
+}
+
+
+
+
