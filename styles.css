@@ -1,3 +1,4 @@
+/*TODO Make responsive for mobile*/
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&family=Ubuntu&display=swap');
 /*Background*/
 body {
@@ -6,7 +7,7 @@ body {
 }
 
 .left-img {
-    background: url("images/bg-main-desktop.png");
+    background: url("/public/images/bg-main-desktop.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
@@ -39,7 +40,7 @@ main {
     padding: 2rem;
 }
 #card-front {
-    background:url("/images/bg-card-front.png");
+    background:url("public/images/bg-card-front.png");
     background-size: cover;
     background-repeat: no-repeat;
     color:white;
@@ -48,7 +49,7 @@ main {
     right: 2rem
 }
 #card-back {
-    background: url("/images/bg-card-back.png");
+    background: url("public/images/bg-card-back.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 15rem;
@@ -135,7 +136,3 @@ main {
 #thank-you-text p {
     color: hsl(279, 6%, 55%);
 }
-
-
-
-
