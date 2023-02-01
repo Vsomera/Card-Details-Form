@@ -7,7 +7,7 @@ body {
 }
 
 .left-img {
-    background: url("/public/images/bg-main-desktop.png");
+    background: url("public/images/bg-main-desktop.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
