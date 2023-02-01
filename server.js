@@ -15,4 +15,3 @@ app.use(express.static("public")) // loads static files in the public dir (index
 app.listen(port, () => {
     console.log("server running on " + port)
 })
-
