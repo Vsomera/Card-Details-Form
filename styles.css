@@ -25,6 +25,7 @@ main {
   justify-content: center;
   align-items: center;
 }
+
 .card-container {
   padding: 0 5%;
 }
@@ -138,4 +139,26 @@ main {
 }
 #thank-you-text p {
   color: hsl(279, 6%, 55%);
+}
+
+@media (max-width: 870px) {
+  .left-img {
+    height: 50vh;
+    width: 100vh;
+  }
+
+  /*Main Content*/
+  main {
+    flex-direction: column;
+  }
+
+  .card-container {
+    margin-top: 20%;
+  }
+
+  /*Texboxes*/
+  .form-container,
+  .thank-you-container {
+    width: 80%;
+  }
 }
